@@ -2,7 +2,7 @@ name: Deploy to AWS S3
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [ main ]
 
 jobs:
   deploy:
@@ -19,14 +19,12 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-1
 
+    - name: Test AWS credentials
+      run: |
+        aws sts get-caller-identity
+
     - name: Deploy to S3
       run: |
         aws s3 sync ./dist/ s3://emmanueldonkoh.com/ \
           --delete \
           --cache-control "max-age=31536000"
-
-    - name: Invalidate CloudFront Cache
-      run: |
-        aws cloudfront create-invalidation \
-          --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
-          --paths "/*"
