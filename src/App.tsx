@@ -1,25 +1,22 @@
 import React from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import Projects from './components/Projects';
+import About from './components/About'; // ← Add this import
 import Skills from './components/Skills';
 import Experience from './components/Experience';
-import Hobbies from './components/Hobbies';
+import Projects from './components/Projects';
 import Contact from './components/Contact';
-import './App.css';
 
 const App: React.FC = () => {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="App">
       <Header />
-      <main>
-        <Hero />
-        <Projects />
-        <Skills />
-        <Experience />
-        <Hobbies />
-        <Contact />
-      </main>
+      <Hero />
+      <About /> {/* ← Add this line */}
+      <Skills />
+      <Experience />
+      <Projects />
+      <Contact />
     </div>
   );
 };

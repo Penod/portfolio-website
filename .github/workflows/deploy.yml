@@ -24,3 +24,9 @@ jobs:
         aws s3 sync ./dist/ s3://emmanueldonkoh.com/ \
           --delete \
           --cache-control "max-age=31536000"
+
+    - name: Invalidate CloudFront Cache
+      run: |
+        aws cloudfront create-invalidation \
+          --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
+          --paths "/*"
