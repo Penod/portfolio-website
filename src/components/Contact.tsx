@@ -1,143 +1,222 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Contact: React.FC = () => {
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    alert('Thank you for your message! I will get back to you soon.');
-  };
-
-  const requestResume = () => {
-    window.location.href = 'mailto:emmanueldonkoh335@gmail.com?subject=Resume Request - Emmanuel Donkoh&body=Hello Emmanuel,%0D%0A%0D%0AI visited your portfolio and would like to request your resume.%0D%0A%0D%0ABest regards,';
-  };
+  const [activeTab, setActiveTab] = useState<'contact' | 'resume'>('contact');
 
   return (
-    <section id="contact" className="py-16 lg:py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Simple Resume Request Banner */}
-        <div className="text-center mb-16">
-          <div className="bg-blue-50 rounded-2xl p-8 border border-blue-200 inline-block">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Need my resume?</h3>
-            <button 
-              onClick={requestResume}
-              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center gap-2 mx-auto"
-            >
-              <span>📧</span>
-              Email for Resume
-            </button>
-          </div>
-        </div>
-
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Get In Touch</h2>
-          <p className="text-xl text-gray-600">Let's discuss how we can work together</p>
-        </div>
-
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Information */}
-          <div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Contact Information</h3>
-            <div className="space-y-4">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                  <span className="text-blue-600">📍</span>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-900">Location</h4>
-                  <p className="text-gray-600">Nacogdoches, TX</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                  <span className="text-blue-600">📞</span>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-900">Phone</h4>
-                  <p className="text-gray-600">936-720-1908</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                  <span className="text-blue-600">✉️</span>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-900">Email</h4>
-                  <p className="text-gray-600">emmanueldonkoh335@gmail.com</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Social Links with Real Icons */}
-            <div className="mt-8">
-              <h4 className="font-semibold text-gray-900 mb-4">Connect with me</h4>
-              <div className="flex gap-4">
-                <a 
-                  href="https://www.linkedin.com/in/emmanuel-donkoh" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 bg-gray-100 hover:bg-blue-600 rounded-full flex items-center justify-center transition-colors duration-300 group"
-                >
-                  <svg className="w-5 h-5 text-gray-600 group-hover:text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                  </svg>
-                </a>
-                <a 
-                  href="https://github.com/Penod" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 bg-gray-100 hover:bg-gray-900 rounded-full flex items-center justify-center transition-colors duration-300 group"
-                >
-                  <svg className="w-5 h-5 text-gray-600 group-hover:text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                  </svg>
-                </a>
-              </div>
-            </div>
+    <section id="contact" className="py-16 bg-gray-50">
+      <div className="container mx-auto px-6">
+        <div className="max-w-4xl mx-auto">
+          {/* Header with Black Background */}
+          <div className="bg-black rounded-2xl p-8 mb-12 text-center">
+            <h2 className="text-3xl font-bold text-white mb-4">Get In Touch</h2>
+            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+              Interested in working together? Reach out or request my resume below.
+            </p>
           </div>
 
-          {/* Contact Form */}
-          <div>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                  Full Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-300"
-                  placeholder="Your name"
-                />
-              </div>
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-300"
-                  placeholder="your.email@example.com"
-                />
-              </div>
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  required
-                  rows={5}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-300"
-                  placeholder="Your message..."
-                ></textarea>
-              </div>
-              <button type="submit" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 w-full">
+          {/* Rest of the component remains the same */}
+          {/* Tab Navigation */}
+          <div className="flex justify-center mb-8">
+            <div className="bg-white rounded-lg p-1 shadow-sm border border-gray-200">
+              <button
+                onClick={() => setActiveTab('contact')}
+                className={`px-6 py-3 rounded-md font-medium transition-colors ${
+                  activeTab === 'contact'
+                    ? 'bg-blue-600 text-white'
+                    : 'text-gray-600 hover:text-blue-600'
+                }`}
+              >
                 Send Message
               </button>
-            </form>
+              <button
+                onClick={() => setActiveTab('resume')}
+                className={`px-6 py-3 rounded-md font-medium transition-colors ${
+                  activeTab === 'resume'
+                    ? 'bg-blue-600 text-white'
+                    : 'text-gray-600 hover:text-blue-600'
+                }`}
+              >
+                Request Resume
+              </button>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12">
+            {/* Contact Information - Always Visible */}
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-6">Contact Information</h3>
+              
+              <div className="space-y-4">
+                <div className="flex items-center space-x-4 p-4 bg-white rounded-lg shadow-sm border border-gray-200">
+                  <div className="text-blue-600">📍</div>
+                  <div>
+                    <div className="font-medium text-gray-800">Location</div>
+                    <div className="text-gray-600">Texas, USA</div>
+                  </div>
+                </div>
+                
+                <div className="flex items-center space-x-4 p-4 bg-white rounded-lg shadow-sm border border-gray-200">
+                  <div className="text-green-600">📧</div>
+                  <div>
+                    <div className="font-medium text-gray-800">Email</div>
+                    <div className="text-gray-600">emmanueldonkoh335@gmail.com</div>
+                  </div>
+                </div>
+                
+                <div className="flex items-center space-x-4 p-4 bg-white rounded-lg shadow-sm border border-gray-200">
+                  <div className="text-purple-600">📱</div>
+                  <div>
+                    <div className="font-medium text-gray-800">Phone</div>
+                    <div className="text-gray-600">+1 (936) 720-1908</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Quick Note */}
+              <div className="mt-8 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                <p className="text-sm text-blue-800">
+                  💡 <strong>Pro Tip:</strong> Requesting my resume helps me understand your specific interests and ensures you get the most relevant version.
+                </p>
+              </div>
+            </div>
+
+            {/* Dynamic Right Column */}
+            <div>
+              {activeTab === 'contact' ? (
+                /* Contact Form */
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-800 mb-6">Send Message</h3>
+                  <form className="space-y-6">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                      <input 
+                        type="text" 
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                        placeholder="Your name"
+                      />
+                    </div>
+                    
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                      <input 
+                        type="email" 
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                        placeholder="your.email@example.com"
+                      />
+                    </div>
+                    
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                      <textarea 
+                        rows={5}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                        placeholder="Tell me about your project or opportunity..."
+                      ></textarea>
+                    </div>
+                    
+                    <button 
+                      type="submit"
+                      className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-blue-700 transition-colors"
+                    >
+                      Send Message
+                    </button>
+                  </form>
+                </div>
+              ) : (
+                /* Resume Request Form */
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-800 mb-6">Request My Resume</h3>
+                  <form className="space-y-6">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">Name *</label>
+                      <input 
+                        type="text" 
+                        required
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                        placeholder="Your full name"
+                      />
+                    </div>
+                    
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">Email *</label>
+                      <input 
+                        type="email" 
+                        required
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                        placeholder="your.company@example.com"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">Company/Organization</label>
+                      <input 
+                        type="text" 
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                        placeholder="Where do you work?"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">Position of Interest</label>
+                      <select className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors">
+                        <option value="">Select a role type</option>
+                        <option value="ml-engineer">Machine Learning Engineer</option>
+                        <option value="data-scientist">Data Scientist</option>
+                        <option value="mlops-engineer">MLOps Engineer</option>
+                        <option value="data-engineer">Data Engineer</option>
+                        <option value="other">Other</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">Additional Notes (Optional)</label>
+                      <textarea 
+                        rows={3}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                        placeholder="Any specific skills or experience you're looking for?"
+                      ></textarea>
+                    </div>
+                    
+                    <button 
+                      type="submit"
+                      className="w-full bg-green-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-green-700 transition-colors"
+                    >
+                      Request Resume
+                    </button>
+                    
+                    <p className="text-sm text-gray-500 text-center">
+                      I'll email you my resume within 24 hours and follow up personally.
+                    </p>
+                  </form>
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Social Links */}
+          <div className="text-center mt-12 pt-8 border-t border-gray-200">
+            <h4 className="text-lg font-medium text-gray-800 mb-4">Connect with me</h4>
+            <div className="flex justify-center space-x-8">
+              <a 
+                href="https://github.com/Penod" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-gray-600 hover:text-gray-900 transition-colors flex items-center space-x-2"
+              >
+                <span>💻</span>
+                <span>GitHub</span>
+              </a>
+              <a 
+                href="https://www.linkedin.com/in/emmanuel-donkoh" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-gray-600 hover:text-blue-600 transition-colors flex items-center space-x-2"
+              >
+                <span>🔗</span>
+                <span>LinkedIn</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>

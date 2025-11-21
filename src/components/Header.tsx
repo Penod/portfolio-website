@@ -33,11 +33,14 @@ const Header: React.FC = () => {
             <button onClick={() => scrollToSection('experience')} className="font-medium text-gray-600 hover:text-blue-600 transition-colors">
               Experience
             </button>
-            <button onClick={() => scrollToSection('contact')} className="font-medium text-gray-600 hover:text-blue-600 transition-colors">
-              Contact
-            </button>
             <button onClick={() => scrollToSection('hobbies')} className="font-medium text-gray-600 hover:text-blue-600 transition-colors">
               Hobbies
+            </button>
+            <button onClick={() => scrollToSection('about')} className="font-medium text-gray-600 hover:text-blue-600 transition-colors">
+              About
+            </button>
+            <button onClick={() => scrollToSection('contact')} className="font-medium text-gray-600 hover:text-blue-600 transition-colors">
+              Contact
             </button>
           </div>
 
@@ -70,11 +73,14 @@ const Header: React.FC = () => {
               <button onClick={() => scrollToSection('experience')} className="font-medium text-gray-600 hover:text-blue-600 transition-colors text-left">
                 Experience
               </button>
+              <button onClick={() => scrollToSection('hobbies')} className="font-medium text-gray-600 hover:text-blue-600 transition-colors text-left">
+                Hobbies
+              </button>
+              <button onClick={() => scrollToSection('about')} className="font-medium text-gray-600 hover:text-blue-600 transition-colors text-left">
+                About
+              </button>
               <button onClick={() => scrollToSection('contact')} className="font-medium text-gray-600 hover:text-blue-600 transition-colors text-left">
                 Contact
-              </button>
-              <button onClick={() => scrollToSection('hobbies')} className="font-medium text-gray-600 hover:text-blue-600 transition-colors text-left">
-               Hobbies
               </button>
             </div>
           </div>
@@ -85,3 +91,4 @@ const Header: React.FC = () => {
 };
 
 export default Header;
+
