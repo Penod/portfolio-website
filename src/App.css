@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50;
+  }
+  
+  .btn-secondary {
+    @apply bg-transparent hover:bg-white text-white hover:text-blue-600 border-2 border-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-white focus:ring-opacity-50;
+  }
+  
+  .tech-tag {
+    @apply bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium border border-blue-200;
+  }
+  
+  .section-padding {
+    @apply py-16 lg:py-24;
+  }
+  
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+/* Profile image styles */
+.profile-image-container {
+  @apply relative w-80 h-80 rounded-full overflow-hidden border-4 border-white border-opacity-30 shadow-2xl transition-all duration-500 hover:border-opacity-60 hover:scale-105;
+}
+
+.profile-overlay {
+  @apply absolute inset-0 bg-gradient-to-br from-blue-600 to-purple-600 bg-opacity-90 flex flex-col items-center justify-center opacity-0 transition-opacity duration-500 rounded-full text-white text-center p-8;
+}
+
+.profile-image-container:hover .profile-overlay {
+  @apply opacity-100;
+}
+
+/* Custom animations */
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Smooth scrolling for the entire page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
